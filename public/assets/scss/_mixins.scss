@@ -1,0 +1,60 @@
+///    Usage:
+///    .d-flex {
+///        @include d-flex($justify, $align, $direction, $wrap);
+///    }
+///    @param {justify-content} $justify (optional): Justify content.
+///    @param {align-item} $align (optional): Align items.
+///    @param {flex-direction} $direction (optional): Flex direction.
+///    @param {flex-wrap} $wrap (optional): Flex wrap.
+@mixin d-flex ($justify: center, $align: center, $direction: row, $wrap: nowrap) {
+    display: flex;
+    flex-direction: $direction;
+    flex-wrap: $wrap;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+/// Usage:
+/// .card {
+///     @include card($cardBg, $cardShadow);
+/// }
+/// @param {color} $bg (optional): Background color of the card.
+/// @param {shadow} $shadow (optional): Box shadow of the card.
+@mixin card ($bg: #fff, $shadow: 0 0 10px rgba(0, 0, 0, 0.1)) {
+    background-color: $bg;
+    box-shadow: $shadow;
+    border-radius: 0.25rem;
+    padding: 1.25rem;
+}
+
+/// Usage:
+/// .position-relative {
+///     @include position(0, null, null, null, null, 1);
+/// }
+/// .position-absolute {
+///     @include position(1, 0, 0, 0, 0, 1);
+/// }
+/// @param {position} $is_absolute (optional): 1 for absolute, 0 for relative.
+/// @param {px/%} $top (optional): Top position.
+/// @param {px/%} $right (optional): Right position.
+/// @param {px/%} $bottom (optional): Bottom position.
+/// @param {px/%} $left (optional): Left position.
+/// @param {number} $z_index (optional): Z-index.
+@mixin position ($p, $top: '', $right: '', $bottom: '', $left: '', $z_index: '') {
+    position: $p;
+    @if $top != '' {
+        top: $top;
+    }
+    @if $right != '' {
+        right: $right;
+    }
+    @if $bottom != '' {
+        bottom: $bottom;
+    }
+    @if $left != '' {
+        left: $left;
+    }
+    @if $z_index != '' {
+        z-index: $z_index;
+    }
+}

@@ -1,0 +1,129 @@
+.zs-wrapper {
+    width: 100%;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background: $backgroundColor;
+    color: $textColor;
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+    ul {
+        list-style-type: none;
+    }
+    header {
+        @include position(absolute, 0, null, null, 0, 999);
+        width: 100%;
+        @include card;
+        border-radius: 0;
+        @include d-flex($justify: space-between, $align: center);
+        .zs-header__logo {
+            width: 3rem;
+            a {
+                width: 100%; 
+                img {
+                    width: 100%;
+                }
+            }
+        }
+        .zs-header__form {
+            display: flex;
+            position: relative;
+            input {
+                width: clamp(15rem, 30%, 30rem);
+                padding: 0.5rem;
+                border: none;
+                border-bottom: 1px solid $borderColor;
+                outline: none;
+                transition: border .2s ease-in-out;
+                &:focus {
+                    border-bottom: 2px solid $primaryColor;
+                }
+            }
+            button {
+                padding: 0.5rem;
+                border: none;
+                background: none;
+                cursor: pointer;
+                border-radius: 10px;
+                @include position($p: absolute, $right: 0);
+            }
+        }
+    }
+    main {
+        display: flex;
+        padding-top: 5.9rem;
+        width: 100%;
+        .zs-main__sidebar {
+            @include card;
+            padding: 0;
+            height: calc(100vh - 5.9rem);
+            overflow-y: scroll;
+            ul li a {
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                padding: 1rem .3rem;
+                transition: all .2s ease-in-out;
+                i {
+                    font-size: 1.1rem;
+                }
+                span {
+                    font-family: 'Protest Guerrilla', sans-serif!important;
+                    font-size: .9rem;
+                }
+                &.active {
+                    background: $primaryColor;
+                    color: $lightColor;
+                }
+                &:not(.active):hover {
+                    background: $hoverColor;
+                }
+            }
+        }
+        .zs-main__content {
+            padding: 1rem;
+            width: 100%;
+            .hamburger {
+                display: flex;
+                .hamburger__line {
+                    color: $primaryColor;
+                    &:not(:last-child)::after {
+                        content: '/';
+                        margin: 0 .1rem;
+                    }
+                }
+                
+            }
+            .content {
+                margin-top: 2rem;
+                @include card;
+                padding: 1rem;
+                table {
+                    width: 100%;
+                    border-collapse: collapse;
+                    th, td {
+                        border: 1px solid $borderColor;
+                        padding: .5rem;
+                        img {
+                            width: 100px;
+                        }
+                    }
+                    th {
+                        background: $primaryColor;
+                        color: $lightColor;
+                    }
+                    tr {
+                        transition: all .2s ease-in-out;
+                        &:hover {
+                            background: $hoverColor;
+                        }
+                        &:nth-child(even) {
+                            background: $hoverColor;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

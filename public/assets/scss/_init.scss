@@ -1,0 +1,24 @@
+::-webkit-scrollbar {
+    width: 5px;
+    height: 3px;
+    background: $backgroundColor;
+}
+::-webkit-scrollbar-thumb {
+    background: $primaryColor;
+    border-radius: 10px;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+.hd-title {
+    font-family: 'Protest Guerrilla', sans-serif;
+}
+.hd-subtitle {
+    font-family: 'Protest Strike', sans-serif;
+}
+body {
+    font-size: 1rem;
+}
